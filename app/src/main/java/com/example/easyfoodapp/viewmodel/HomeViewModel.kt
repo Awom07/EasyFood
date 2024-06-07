@@ -1,8 +1,11 @@
 package com.example.easyfoodapp.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.easyfoodapp.pojo.CategoryList
+import com.example.easyfoodapp.pojo.CategoryMeals
 import com.example.easyfoodapp.pojo.Meal
 import com.example.easyfoodapp.pojo.MealList
 import com.example.easyfoodapp.retrofit.RetrofitInstance
@@ -12,6 +15,7 @@ import retrofit2.Response
 
 class HomeViewModel() : ViewModel() {
     private var randomMealLiveData = MutableLiveData<Meal>()
+    private var popularItemsLiveData = MutableLiveData<List<CategoryMeals>>()
     fun getRandomMeal() {
         RetrofitInstance.api.getRandomMeal().enqueue(object : Callback<MealList> {
             override fun onResponse(call: Call<MealList>, response: Response<MealList>) {
@@ -24,7 +28,23 @@ class HomeViewModel() : ViewModel() {
             }
 
             override fun onFailure(call: Call<MealList>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("HomeFragment", t.message.toString())
+            }
+        })
+    }
+
+    fun getPopularItems(){
+        RetrofitInstance.api.getPopularItems("Seafood").enqueue(object : Callback<CategoryList>{
+            override fun onResponse(call: Call<CategoryList>, response: Response<CategoryList>) {
+                if (response.body() != null){
+                    popularItemsLiveData.value = response.body()!!.meals
+                }else{
+                    return
+                }
+            }
+
+            override fun onFailure(call: Call<CategoryList>, t: Throwable) {
+                Log.d("MealActivity", t.message.toString())
             }
         })
     }
@@ -32,5 +52,8 @@ class HomeViewModel() : ViewModel() {
     fun observeRandomMealLiveData(): LiveData<Meal> {
         return randomMealLiveData
 
+    }
+    fun observePopularItemsLiveData(): MutableLiveData<List<CategoryMeals>> {
+        return popularItemsLiveData
     }
 }

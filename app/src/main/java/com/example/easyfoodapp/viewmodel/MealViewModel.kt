@@ -3,16 +3,18 @@ package com.example.easyfoodapp.viewmodel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.easyfoodapp.pojo.CategoryList
+import com.example.easyfoodapp.pojo.CategoryMeals
 import com.example.easyfoodapp.pojo.Meal
 import com.example.easyfoodapp.pojo.MealList
 import com.example.easyfoodapp.retrofit.RetrofitInstance
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
 
 class MealViewModel() : ViewModel() {
     private var mealDetailLiveData = MutableLiveData<Meal>()
+
 
     fun getMealDetail(id: String) {
         RetrofitInstance.api.getMealDetails(id).enqueue(object : Callback<MealList> {
@@ -29,6 +31,9 @@ class MealViewModel() : ViewModel() {
             }
         })
     }
+
+
+
     fun observeMealDetailsLiveData(): MutableLiveData<Meal> {
         return mealDetailLiveData
     }

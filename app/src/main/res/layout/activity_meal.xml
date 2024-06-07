@@ -25,13 +25,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin" />
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?actionBarSize"
-                app:layout_collapseMode="pin"/>
+                app:layout_collapseMode="pin" />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -39,13 +39,13 @@
         android:id="@+id/btn_add_to_fav"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/favorite_border"
+        android:layout_marginEnd="@dimen/_10sdp"
         android:backgroundTint="@color/accent"
+        android:src="@drawable/favorite_border"
         android:tint="@color/white"
         app:layout_anchor="@id/appBar"
-        app:layout_anchorGravity="bottom|end"
-        android:layout_marginEnd="@dimen/_10sdp"/>
-    
+        app:layout_anchorGravity="bottom|end" />
+
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -59,35 +59,35 @@
                 android:id="@+id/linear_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
                 android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginEnd="@dimen/_5sdp"
                 android:layout_marginTop="@dimen/_5sdp"
-                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent">
+                app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/tv_category"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Category : Beef"
-                    android:textStyle="bold"
-                    android:textColor="@color/g_black"
+                    android:layout_weight="1"
                     android:drawableLeft="@drawable/category"
                     android:drawableTint="@color/g_black"
-                    android:layout_weight="1"/>
+                    android:text="Category : Beef"
+                    android:textColor="@color/g_black"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tv_area"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Area : Palestine"
-                    android:textStyle="bold"
-                    android:textColor="@color/g_black"
+                    android:layout_weight="1"
                     android:drawableLeft="@drawable/location_on"
                     android:drawableTint="@color/g_black"
-                    android:layout_weight="1"/>
+                    android:text="Area : Palestine"
+                    android:textColor="@color/g_black"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -95,25 +95,25 @@
                 android:id="@+id/tv_instructions"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="- Instructions : "
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linear_layout"
-                android:layout_marginTop="@dimen/_10sdp"
                 android:layout_marginStart="@dimen/_5sdp"
-                android:textStyle="bold"
-                android:textColor="@color/g_black"
+                android:layout_marginTop="@dimen/_10sdp"
                 android:fontFamily="@font/myfont"
-                android:textSize="@dimen/_15sdp"/>
+                android:text="- Instructions : "
+                android:textColor="@color/g_black"
+                android:textSize="@dimen/_15sdp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linear_layout" />
+
             <TextView
                 android:id="@+id/tv_instructions_step"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
 
-                app:layout_constraintStart_toStartOf="@+id/tv_instructions"
-                app:layout_constraintTop_toBottomOf="@+id/tv_instructions"
                 android:layout_marginTop="@dimen/_2sdp"
                 android:textColor="@color/black"
-                />
+                app:layout_constraintStart_toStartOf="@+id/tv_instructions"
+                app:layout_constraintTop_toBottomOf="@+id/tv_instructions" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
@@ -122,15 +122,15 @@
         android:layout_width="@dimen/_40sdp"
         android:layout_height="@dimen/_40sdp"
         android:layout_gravity="bottom|center"
-        android:src="@drawable/icons8_youtube"
-        android:layout_marginBottom="@dimen/_10sdp"/>
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:src="@drawable/icons8_youtube" />
 
     <com.google.android.material.progressindicator.LinearProgressIndicator
         android:id="@+id/progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:indeterminate="true"
-        app:layout_anchorGravity="bottom"
-        android:visibility="gone"/>
+        android:visibility="gone"
+        app:layout_anchorGravity="bottom" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -4,17 +4,13 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.easyfoodapp.R
 import com.example.easyfoodapp.databinding.ActivityMealBinding
 import com.example.easyfoodapp.fragments.HomeFragment
-import com.example.easyfoodapp.fragments.HomeFragment.Companion.MEAL_ID
 import com.example.easyfoodapp.pojo.Meal
 import com.example.easyfoodapp.viewmodel.MealViewModel
 
@@ -51,7 +47,7 @@ class MealActivity : AppCompatActivity() {
     }
 
     private fun observerMealDeatialsLiveData() {
-        mealMVVM.observeMealDetailsLiveData().observe(this,  object : Observer<Meal> {
+        mealMVVM.observeMealDetailsLiveData().observe(this, object : Observer<Meal> {
             override fun onChanged(value: Meal) {
                 val meal = value
                 onResponseCase()
@@ -61,7 +57,7 @@ class MealActivity : AppCompatActivity() {
                 youtbLink = meal.strYoutube
             }
         })
-        }
+    }
 
     private fun setInformationInViews() {
         Glide.with(applicationContext).load(mealThumb).into(binding.imgMealDetail)
@@ -79,7 +75,7 @@ class MealActivity : AppCompatActivity() {
 
     }
 
-    private fun loadingCase(){
+    private fun loadingCase() {
 
         binding.progressBar.visibility = View.VISIBLE
         binding.btnAddToFav.visibility = View.INVISIBLE
@@ -90,7 +86,8 @@ class MealActivity : AppCompatActivity() {
 
 
     }
-    private fun onResponseCase(){
+
+    private fun onResponseCase() {
         binding.progressBar.visibility = View.INVISIBLE
         binding.btnAddToFav.visibility = View.VISIBLE
         binding.tvInstructions.visibility = View.VISIBLE
