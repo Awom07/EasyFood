@@ -7,17 +7,17 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.easyfoodapp.HomeFragment"
+        android:name="com.example.easyfoodapp.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/favoritesFragment"
-        android:name="com.example.easyfoodapp.FavoritesFragment"
+        android:name="com.example.easyfoodapp.fragments.FavoritesFragment"
         android:label="fragment_favorites"
         tools:layout="@layout/fragment_favorites" />
     <fragment
         android:id="@+id/categoryFragment"
-        android:name="com.example.easyfoodapp.CategoryFragment"
+        android:name="com.example.easyfoodapp.fragments.CategoryFragment"
         android:label="fragment_category"
         tools:layout="@layout/fragment_category" />
 </navigation>

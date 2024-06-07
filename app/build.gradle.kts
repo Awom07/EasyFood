@@ -61,4 +61,16 @@ dependencies {
 
     //gif
     implementation("pl.droidsonroids.gif:android-gif-drawable:1.2.27")
+
+    //retrofit
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+
+    //viewmodel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
 }
