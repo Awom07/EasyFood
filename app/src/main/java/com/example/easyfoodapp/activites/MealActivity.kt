@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import com.bumptech.glide.Glide
 import com.example.easyfoodapp.R
 import com.example.easyfoodapp.databinding.ActivityMealBinding
@@ -30,6 +31,8 @@ class MealActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMealBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        mealMVVM = ViewModelProviders.of(this)[MealViewModel::class.java]
 
         getMealIformationFromIntent()
         setInformationInViews()
@@ -63,6 +66,9 @@ class MealActivity : AppCompatActivity() {
     private fun setInformationInViews() {
         Glide.with(applicationContext).load(mealThumb).into(binding.imgMealDetail)
         binding.collapsingToolbar.title = mealName
+        binding.collapsingToolbar.setCollapsedTitleTextColor(resources.getColor(R.color.white))
+        binding.collapsingToolbar.setExpandedTitleColor(resources.getColor(R.color.white))
+
     }
 
     private fun getMealIformationFromIntent() {

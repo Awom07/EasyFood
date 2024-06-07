@@ -31,7 +31,6 @@ class HomeFragment : Fragment() {
         const val MEAL_ID = "com.example.easyfoodapp.fragments.idMeal"
         const val MEAL_NAME = "com.example.easyfoodapp.fragments.nameMeal"
         const val MEAL_THUMB = "com.example.easyfoodapp.fragments.thumbMeal"
-        const val MEAL_YOUTUBE = "com.example.easyfoodapp.fragments.youtubeMeal"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,7 +60,6 @@ class HomeFragment : Fragment() {
             intent.putExtra(MEAL_ID, randomMeal.idMeal)
             intent.putExtra(MEAL_NAME, randomMeal.strMeal)
             intent.putExtra(MEAL_THUMB, randomMeal.strMealThumb)
-
             startActivity(intent)
         }
     }
